@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {  useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -9,25 +10,30 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
+import Copyright from '../../Copyright';
 import useStyles from './SignUpForm.styles';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" style={{ color: '#ffffff' }} align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Health Tracker
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 
 
 const SignUpForm = ({props}) => {
   const classes = useStyles(props);
+  const dispatch = useDispatch()
+
+  const initialFormState = {
+    name:'',
+    email:'',
+    password:''};
+
+  const [values, setValues] = useState(initialFormState || {});
+
+
+  const handleChange = event => {
+    const { name, value } = event.target;
+    setValues(...values, { [name]: value });
+  }
+
+  const handleSubmit = event => {
+    event.preventDefault()
+  }
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -41,7 +47,20 @@ const SignUpForm = ({props}) => {
           <Typography component="h1" variant="h5" style={{ color: '#ffffff' }}>
             Sign up to stay healthy
           </Typography>
-          <form className={classes.form} noValidate>
+          <form className={classes.form} noValidate onSubmit = {handleSubmit}>
+          <TextField
+          variant="outlined"
+          margin="normal"
+          required
+          fullWidth
+          id="name"
+          label="Full Name"
+          name="name"
+          onChange = {handleChange}
+          value = {values.name}
+          autoComplete="full name"
+          autoFocus
+        />
             <TextField
               variant="outlined"
               margin="normal"
@@ -50,6 +69,8 @@ const SignUpForm = ({props}) => {
               id="email"
               label="Email Address"
               name="email"
+              onChange = {handleChange}
+              value = {values.email}
               autoComplete="email"
               autoFocus
             />
@@ -60,21 +81,12 @@ const SignUpForm = ({props}) => {
               fullWidth
               name="password"
               label="Password"
+              onChange = {handleChange}
+              value = {values.password}
               type="password"
               id="password"
               autoComplete="current-password"
             />
-            <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password confirmation"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
             <Button
               type="submit"
               fullWidth
