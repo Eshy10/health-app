@@ -74,11 +74,6 @@ const LoginForm = ({props}) => {
               Sign In
             </Button>
             <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2" style={{ color: '#ffffff' }}>
-                  Forgot password?
-                </Link>
-              </Grid>
               <Grid item>
                 <Link href="#" variant="body2" style={{ color: '#ffffff' }}>
                   {"Don't have an account? Sign Up"}
