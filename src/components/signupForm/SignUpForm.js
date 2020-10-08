@@ -11,6 +11,7 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Copyright from '../../Copyright';
+import {userPostFetch} from '../../redux/actions/index';
 import useStyles from './SignUpForm.styles';
 
 
@@ -21,18 +22,22 @@ const SignUpForm = ({props}) => {
   const initialFormState = {
     name:'',
     email:'',
-    password:''};
+    password:'',
+    password_confirmation: ''
+};
 
-  const [values, setValues] = useState(initialFormState || {});
+  const [values, setValues] = useState(initialFormState);
 
 
   const handleChange = event => {
     const { name, value } = event.target;
-    setValues(...values, { [name]: value });
+    setValues({...values, [name]: value });
   }
 
   const handleSubmit = event => {
     event.preventDefault()
+    dispatch(userPostFetch(values))
+    setValues(initialFormState)
   }
 
   return (
@@ -47,7 +52,7 @@ const SignUpForm = ({props}) => {
           <Typography component="h1" variant="h5" style={{ color: '#ffffff' }}>
             Sign up to stay healthy
           </Typography>
-          <form className={classes.form} noValidate onSubmit = {handleSubmit}>
+          <form className={classes.form} onSubmit = {handleSubmit}>
           <TextField
           variant="outlined"
           margin="normal"
@@ -87,6 +92,19 @@ const SignUpForm = ({props}) => {
               id="password"
               autoComplete="current-password"
             />
+            <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="password_confirmation"
+            label="Password Confirmation"
+            onChange = {handleChange}
+            value = {values.password_confirmation}
+            type="password"
+            id="password_confirmation"
+            autoComplete="current-password"
+          />
             <Button
               type="submit"
               fullWidth
