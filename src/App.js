@@ -1,6 +1,5 @@
 import React from 'react';
-import Navbar from './components/navbar/Navbar';
-import BottomNavbar from './components/bottomNav/bottomNav';
+import {  BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import LoginForm from './components/loginForm/LoginForm';
 import SignUpForm from './components/signupForm/SignUpForm';
 import Homepage from './containers/homepage/Homepage'
@@ -8,9 +7,15 @@ import './App.css';
 
 function App() {
   return (
+    <Router>
     <div className="App">
-   <SignUpForm/>
+    <Switch>
+    <Route path="/signup" component={SignUpForm}/>
+    <Route path="/login" component={LoginForm}/>
+    <Route path="/" component={Homepage}/>
+    </Switch>
     </div>
+    </Router>
   );
 }
 

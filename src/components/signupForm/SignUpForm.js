@@ -1,5 +1,6 @@
 import React, {  useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useHistory } from "react-router-dom";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -11,13 +12,15 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Copyright from '../../Copyright';
-import {userPostFetch} from '../../redux/actions/index';
+import HealthApi from '../../api/healthTracker';
+import {loginUser} from '../../redux/actions/index';
 import useStyles from './SignUpForm.styles';
 
 
 const SignUpForm = ({props}) => {
   const classes = useStyles(props);
   const dispatch = useDispatch()
+  let history = useHistory();
 
   const initialFormState = {
     name:'',
@@ -36,8 +39,11 @@ const SignUpForm = ({props}) => {
 
   const handleSubmit = event => {
     event.preventDefault()
-    dispatch(userPostFetch(values))
-    setValues(initialFormState)
+     HealthApi.signUpUser(values).then(data => {
+       localStorage.setItem("token", data.token);
+        dispatch(loginUser(data.values));
+        history.push("/login")
+      });
   }
 
   return (
@@ -116,7 +122,7 @@ const SignUpForm = ({props}) => {
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="#" variant="body2" style={{ color: '#ffffff' }}>
+                <Link href="/login" variant="body2" style={{ color: '#ffffff' }}>
                   {"Already have an account? Log in here"}
                 </Link>
               </Grid>

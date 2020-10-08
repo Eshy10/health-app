@@ -11,10 +11,13 @@ export const userPostFetch = user => {
 
          }
         });
-           
+           if (data.message) {
+               console.warn(data.message)
+           } else {
             localStorage.setItem("token", data.token);
-            console.log(localStorage.getItem("token"));
             dispatch(loginUser(data.user));
+           }
+            
   
     }
   }
@@ -29,14 +32,17 @@ export const userPostFetch = user => {
          }
         });
            
-            localStorage.setItem("token", data.token);
-            console.log(localStorage.getItem("token"));
-            dispatch(loginUser(data.user));
+        if (data.message) {
+            console.warn(data.message)
+        } else {
+         localStorage.setItem("token", data.token);
+         dispatch(loginUser(data.user));
+        }
   
     }
   }
   
-  const loginUser = userObj => ({
+  export const loginUser = userObj => ({
       type: 'LOGIN_USER',
       payload: userObj
   })

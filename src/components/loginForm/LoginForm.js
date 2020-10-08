@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useHistory } from "react-router-dom";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -10,15 +11,16 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import {userLoginFetch} from '../../redux/actions/index';
+import HealthApi from '../../api/healthTracker';
+import {loginUser} from '../../redux/actions/index';
 import Copyright from '../../Copyright';
 import useStyles from './LoginForm.styles';
 
 
 const LoginForm = ({props}) => {
   const classes = useStyles(props);
-
   const dispatch = useDispatch()
+  let history = useHistory();
 
   const initialFormState = {
     email:'',
@@ -35,8 +37,11 @@ const LoginForm = ({props}) => {
 
   const handleSubmit = event => {
     event.preventDefault()
-    dispatch(userLoginFetch(values))
-    setValues(initialFormState)
+     HealthApi.loginUser(values).then(data => {
+       localStorage.setItem("token", data.token);
+        dispatch(loginUser(data.values));
+        history.push("/")
+      });
   }
 
 
@@ -90,7 +95,7 @@ const LoginForm = ({props}) => {
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="#" variant="body2" style={{ color: '#ffffff' }}>
+                <Link href="/signup" variant="body2" style={{ color: '#ffffff' }}>
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
