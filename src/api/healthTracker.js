@@ -35,7 +35,7 @@ const HealthApi = (() => {
       return promiseData;
     };
 
-    const getCategories = () => {
+    const getMeasureCategories = () => {
     const token = localStorage.getItem('token')
     const promise = axios.get('http://localhost:3001/api/v1/measure_categories',
     {
@@ -48,7 +48,7 @@ const HealthApi = (() => {
     promise.catch(error => { throw (error); });
     return promiseData;
     }
-    return { signUpUser, loginUser, getCategories };
+    return { signUpUser, loginUser, getMeasureCategories };
   })();
   
   export default HealthApi;
