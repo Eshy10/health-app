@@ -40,7 +40,7 @@ const SignUpForm = ({props}) => {
   const handleSubmit = event => {
     event.preventDefault()
      HealthApi.signUpUser(values).then(data => {
-       localStorage.setItem("token", data.token);
+       localStorage.setItem("token", data.auth_token);
         dispatch(loginUser(data.values));
         history.push("/login")
       });

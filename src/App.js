@@ -2,7 +2,8 @@ import React from 'react';
 import {  BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import LoginForm from './components/loginForm/LoginForm';
 import SignUpForm from './components/signupForm/SignUpForm';
-import Homepage from './containers/homepage/Homepage'
+import Homepage from './containers/homepage/Homepage';
+import AddMeasureCard from './components/addMeasures/AddMeasurement';
 import './App.css';
 
 function App() {
@@ -13,6 +14,11 @@ function App() {
     <Route path="/signup" component={SignUpForm}/>
     <Route path="/login" component={LoginForm}/>
     <Route path="/" component={Homepage}/>
+    <Route
+    path="/measurecard/:measurecardIndex"
+    exact
+    component={AddMeasureCard}
+  />
     </Switch>
     </div>
     </Router>

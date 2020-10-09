@@ -6,3 +6,8 @@ export const loginUser = userObj => ({
   export const logoutUser = () => ({
     type: 'LOGOUT_USER'
   })
+
+  export const getCategories = category => ({
+    type: 'GET_CATEGORIES',
+    payload: category
+  })

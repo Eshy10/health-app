@@ -10,6 +10,7 @@ if (process.env.NODE_ENV === 'development') {
 const initialState = {
 
   currentUser: {},
+  categories: []
 };
 
 const store = createStore(
