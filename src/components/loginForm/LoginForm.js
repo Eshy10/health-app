@@ -44,7 +44,6 @@ const LoginForm = ({props}) => {
       });
   }
 
-
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
@@ -57,7 +56,7 @@ const LoginForm = ({props}) => {
           <Typography component="h1" variant="h5" style={{ color: '#ffffff' }}>
             Welcome Back ):
           </Typography>
-          <form className={classes.form}  onSubmit = {handleSubmit}>
+          <form className={classes.form} onSubmit = {handleSubmit}>
             <TextField
               variant="outlined"
               margin="normal"

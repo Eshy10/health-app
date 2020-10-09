@@ -8,7 +8,7 @@ const MeasureCategoryList = ({props}) => {
     const classes = useStyles(props) 
     return (
      <div>
-     <h2 style = {{color: 'GrayText', fontFamily: 'fangsong'}}>Choose a category to start tracking</h2>
+     <h2 className={classes.mainTitle} style = {{color: 'GrayText', fontFamily: 'fangsong'}}>Choose a category to start tracking</h2>
      <Grid container className={classes.root} spacing={3}>
      <Grid  item={true} xs={12} sm={6} md={6} className={classes.control} >
      <MeasureCategoryCard  name = {'Weight'}  />
