@@ -13,12 +13,12 @@ function App() {
     <Switch>
     <Route path="/signup" component={SignUpForm}/>
     <Route path="/login" component={LoginForm}/>
-    <Route path="/" component={Homepage}/>
+    <Route exact path="/" component={Homepage}/>
     <Route
-    path="/measurecard/:measurecardIndex"
+    path="/measurecard/:measurecardName"
     exact
     component={AddMeasureCard}
-  />
+    />
     </Switch>
     </div>
     </Router>

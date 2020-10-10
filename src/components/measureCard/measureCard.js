@@ -10,7 +10,7 @@ const MeasureCategoryCard = ({props, name, id}) => {
   const classes = useStyles(props);
 
   return (
-    <Link to={`measurecard/${id}`}>
+    <Link to={`measurecard/${name}`}>
     <Card className={classes.root}>
     <CardActionArea>
       <CardContent>

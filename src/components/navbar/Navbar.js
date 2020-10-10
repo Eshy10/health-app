@@ -32,7 +32,7 @@ const Navbar = ({props}) => {
           <EmojiNatureIcon/>
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.title}>
-            Health Tracker App
+            Health Tracker
           </Typography>
           <Button onClick={Logout} color="inherit">Logout</Button>
         </Toolbar>

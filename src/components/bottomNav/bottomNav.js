@@ -1,5 +1,6 @@
 import React from 'react';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
+import { Link } from 'react-router-dom';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
@@ -18,7 +19,9 @@ const BottomNavbar = ({props}) => {
 
   return (
     <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
+    <Link to="/">
       <BottomNavigationAction label="Add measure" value="add measure" icon={<PlaylistAddIcon />} style = {{color: 'white'}} />
+      </Link>
       <BottomNavigationAction label="Track" value="track" icon={<TrendingUpIcon />}  style = {{color: 'white'}}  />
       <BottomNavigationAction label="Progress" value="progress" icon={<PieChartIcon />}  style = {{color: 'white'}}  />
       <BottomNavigationAction label="more" value="more" icon={<MoreHorizIcon />}  style = {{color: 'white'}}  />
