@@ -15,7 +15,7 @@ function App() {
     <Route path="/login" component={LoginForm}/>
     <Route exact path="/" component={Homepage}/>
     <Route
-    path="/measurecard/:measurecardName"
+    path="/measurecard/:measurecardIndex"
     exact
     component={AddMeasureCard}
     />

@@ -11,7 +11,7 @@ import useStyles from './bottomNav.styles';
 
 const BottomNavbar = ({props}) => {
   const classes = useStyles(props);
-  const [value, setValue] = React.useState('Add neasure');
+  const [value, setValue] = React.useState('Add measure');
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

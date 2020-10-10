@@ -51,21 +51,20 @@ const HealthApi = (() => {
 
     const addMeasurement = measure => {
         const token = localStorage.getItem('token')
-        const promise = axios.post('http://localhost:3001/api/v1/measurements',
-        {
-            measurements: {
-                value: measure.value,
-                date: measure.date,
-                category_id: measure.category_id
-       
-               },
-            headers: {
-                Authorization: `Bearer ${token}`,
-              },
-        }
+        const config = {
+            headers: { Authorization: `Bearer ${token}` }
+        };
+        
+        const measurements = {
+            value: measure.value,
+            date: measure.date,
+            measure_category_id: measure.measure_category_id
+        };
+        const promise = axios.post('http://localhost:3001/api/v1/measurements', measurements, config
         )
         const promiseData = promise.then(res => res.data);
         promise.catch(error => { throw (error); });
+        console.log(promiseData)
         return promiseData;
         }
     return { signUpUser, loginUser, getMeasureCategories, addMeasurement };

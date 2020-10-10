@@ -13,7 +13,7 @@ export const loginUser = userObj => ({
   })
 
   
-  export const addMeasurement = measurement => ({
+  export const addMeasurements = measurement => ({
     type: 'ADD_MEASURES',
     payload: measurement
   })

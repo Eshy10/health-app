@@ -1,30 +1,41 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
+import { useDispatch } from 'react-redux';
 import Navbar from '../navbar/Navbar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import BottomNavbar from '../bottomNav/bottomNav';
-import useStyles from './AddMeasurement.styles'
+import {addMeasurements} from '../../redux/actions/index';
+import HealthApi from '../../api/healthTracker';
+import useStyles from './AddMeasurement.styles';
 
 const AddMeasureCard = ({props, name}) => {
   const classes = useStyles(props);
-  const { measurecardName } = useParams();
+  let { measurecardIndex } = useParams();
+  const history = useHistory();
+  const dispatch = useDispatch();
 
   
   const initialFormState = {
-    value:'',
+    value: '',
     date:'',
-    category_id: measurecardName
+    measure_category_id: Number(measurecardIndex)
 };
 
   const [values, setValues] = useState(initialFormState);
 
   const handleChange = event => {
-
+    const { name, value, type } = event.target;
+    setValues({...values, [name]: type === 'number' ? parseInt(value) : value });
   }
 
   const handleSubmit = event => {
-
+  event.preventDefault()
+  HealthApi.addMeasurement(values).then(data => {
+     dispatch(addMeasurements(data.values));
+     history.push("/")
+   }).catch(error => console.log(error));
   }
 
   return (
@@ -37,11 +48,12 @@ const AddMeasureCard = ({props, name}) => {
         margin="normal"
         required
         fullWidth
-        id="number"
+        id="value"
+        type = 'number'
         onChange = {handleChange}
-        value= {values.email}
-        label= {measurecardName}
-        name="number"
+        value= {values.value}
+        label= {measurecardIndex === '1' ? 'Weight' : 'Cholestrol Level'}
+        name="value"
         autoComplete="number"
         autoFocus
       />
@@ -51,7 +63,7 @@ const AddMeasureCard = ({props, name}) => {
         required
         fullWidth
         onChange = {handleChange}
-        value= {values.password}
+        value= {values.date}
         name="date"
         type="date"
         id="date"
