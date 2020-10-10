@@ -11,3 +11,9 @@ export const loginUser = userObj => ({
     type: 'GET_CATEGORIES',
     payload: category
   })
+
+  
+  export const addMeasurement = measurement => ({
+    type: 'ADD_MEASURES',
+    payload: measurement
+  })
