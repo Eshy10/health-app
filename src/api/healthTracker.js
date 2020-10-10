@@ -67,7 +67,23 @@ const HealthApi = (() => {
         console.log(promiseData)
         return promiseData;
         }
-    return { signUpUser, loginUser, getMeasureCategories, addMeasurement };
+
+        
+    const getAllMeasurements = () => {
+        const token = localStorage.getItem('token')
+        const promise = axios.get('http://localhost:3001/api/v1/measurements',
+        {
+            headers: {
+                Authorization: `Bearer ${token}`,
+              },
+        }
+        )
+        const promiseData = promise.then(res => res.data);
+        promise.catch(error => { throw (error); });
+        return promiseData;
+        }
+    
+    return { signUpUser, loginUser, getMeasureCategories, addMeasurement, getAllMeasurements };
   })();
   
   export default HealthApi;
