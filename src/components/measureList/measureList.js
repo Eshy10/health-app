@@ -22,6 +22,7 @@ const MeasureCategoryList = ({props}) => {
     if (!allCategories) {
         return null
     }
+    console.log(allCategories)
     return (
      <div>
      <h2 className={classes.mainTitle} style = {{color: 'GrayText', fontFamily: 'fangsong'}}>Choose a category to start tracking</h2>

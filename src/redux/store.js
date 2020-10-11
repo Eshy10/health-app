@@ -11,7 +11,8 @@ const initialState = {
 
   currentUser: {},
   categories: [],
-  measurement: {}
+  measurement: {},
+  measurements: []
 };
 
 const store = createStore(
