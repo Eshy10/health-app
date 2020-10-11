@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Navbar from '../navbar/Navbar';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import HealthApi from '../../api/healthTracker';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import BottomNavbar from '../../components/bottomNav/bottomNav.js'
@@ -26,13 +27,13 @@ const TrackCard = ({props}) => {
         return null
     }
 
-    console.log( allMeasurements)
 
     return (
      <div>
      <Navbar/>
      {
          allMeasurements.map(measure => (
+             <Link key={measure.id} to={`measuredetails/${measure.id}`}>
             <div key={measure.id} className={classes.tracks}>
             <div className={classes.root}>
             <CircularProgress variant="static" value={measure.value} />
@@ -40,6 +41,7 @@ const TrackCard = ({props}) => {
           <h4>{formatDate(measure.date)}</h4>
           <p className={classes.title}>{measure.measure_category ? measure.measure_category.name : ''}</p>
             </div>
+            </Link>
          ))
      }
      <BottomNavbar/>

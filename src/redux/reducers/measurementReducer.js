@@ -9,6 +9,8 @@ const measureReducer = (state = initialState, action) => {
             ...state, 
             measurement: action.payload 
         }
+        case 'GET_MEASURES':
+            return action.payload
 
         default:
         return state;

@@ -22,3 +22,8 @@ export const loginUser = userObj => ({
       type: 'GET_MEASUREMENTS',
       payload: measurement
   })
+
+  export const getMeasuresId = measurement => ({
+      type: 'GET_MEASURES',
+      payload: measurement
+  })

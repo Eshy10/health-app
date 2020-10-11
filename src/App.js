@@ -5,6 +5,7 @@ import SignUpForm from './components/signupForm/SignUpForm';
 import Homepage from './containers/homepage/Homepage';
 import AddMeasureCard from './components/addMeasures/AddMeasurement';
 import TrackCard from './components/track/TrackCard';
+import MeasureDetails from './components/measureDetails/MeasureDetails';
 import './App.css';
 
 function App() {
@@ -19,6 +20,11 @@ function App() {
     path="/measurecard/:measurecardIndex"
     exact
     component={AddMeasureCard}
+    />
+    <Route
+    path="/measuredetails/:measuredetailsIndex"
+    exact
+    component={MeasureDetails}
     />
     <Route path="/trackCard" component={TrackCard}/>
     </Switch>
