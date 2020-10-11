@@ -3,7 +3,6 @@ import Navbar from '../navbar/Navbar';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import HealthApi from '../../api/healthTracker';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import BottomNavbar from '../../components/bottomNav/bottomNav.js'
 import {getMeasurements} from '../../redux/actions/index';
 import useStyles from './trackCard.styles';
@@ -36,7 +35,7 @@ const TrackCard = ({props}) => {
              <Link key={measure.id} to={`measuredetails/${measure.id}`}>
             <div key={measure.id} className={classes.tracks}>
             <div className={classes.root}>
-            <CircularProgress variant="static" value={measure.value} />
+            <div style={{ borderColor: measure.value > 80 ? '#eee8e8 #307bbe #307bbe #307bbe' : '#307bbe #307bbe #eee8e8 #eee8e8'}} className= {classes.oval2}></div>
           </div>
           <h4>{formatDate(measure.date)}</h4>
           <p className={classes.title}>{measure.measure_category ? measure.measure_category.name : ''}</p>

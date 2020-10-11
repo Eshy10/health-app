@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     },
     mainTitle: {
       textAlign: 'center'
-    }
+    },
 
   }));
 
