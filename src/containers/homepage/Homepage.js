@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../../components/navbar/Navbar';
 import BottomNavbar from '../../components/bottomNav/bottomNav';
-import MeasureCategoryList from '../../components/measureList/MeasureList';
+import MeasureCategoryList from '../../components/measureList/measureList';
 import Container from '@material-ui/core/Container';
 
 const Homepage = () => {
