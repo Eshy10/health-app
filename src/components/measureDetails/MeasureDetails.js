@@ -27,8 +27,6 @@ const MeasureDetails = ({props}) => {
       if (!getMeasurementId) {
           return null
       }
-  
-      console.log(getMeasurementId)
    
     return (
         <div>

@@ -4,7 +4,7 @@ import axios from 'axios';
 const HealthApi = (() => {
     const signUpUser = user => {
       const promise = axios.post(
-        'http://localhost:3001/signup',
+        'https://nameless-temple-95690.herokuapp.com/signup',
         {
             users: {
                 email: user.email,
@@ -21,7 +21,7 @@ const HealthApi = (() => {
     };
     const loginUser = user => {
       const promise = axios.post(
-        'http://localhost:3001/auth/login',
+        'https://nameless-temple-95690.herokuapp.com/auth/login',
         {
             users: {
                 email: user.email,
@@ -37,7 +37,7 @@ const HealthApi = (() => {
 
     const getMeasureCategories = () => {
     const token = localStorage.getItem('token')
-    const promise = axios.get('http://localhost:3001/api/v1/measure_categories',
+    const promise = axios.get('https://nameless-temple-95690.herokuapp.com/api/v1/measure_categories',
     {
         headers: {
             Authorization: `Bearer ${token}`,
@@ -60,7 +60,7 @@ const HealthApi = (() => {
             date: measure.date,
             measure_category_id: measure.measure_category_id
         };
-        const promise = axios.post('http://localhost:3001/api/v1/measurements', measurements, config
+        const promise = axios.post('https://nameless-temple-95690.herokuapp.com/api/v1/measurements', measurements, config
         )
         const promiseData = promise.then(res => res.data);
         promise.catch(error => { throw (error); });
@@ -71,7 +71,7 @@ const HealthApi = (() => {
         
     const getAllMeasurements = () => {
         const token = localStorage.getItem('token')
-        const promise = axios.get('http://localhost:3001/api/v1/measurements',
+        const promise = axios.get('https://nameless-temple-95690.herokuapp.com/api/v1/measurements',
         {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -85,7 +85,7 @@ const HealthApi = (() => {
 
         const getAllMeasurementId = (id) => {
             const token = localStorage.getItem('token')
-            const promise = axios.get(`http://localhost:3001/api/v1/measurements/${id}`,
+            const promise = axios.get(`https://nameless-temple-95690.herokuapp.com/api/v1/measurements/${id}`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`,
