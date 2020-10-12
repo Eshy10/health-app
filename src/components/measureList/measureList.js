@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
-import MeasureCategoryCard from '../measureCard/MeasureCard';
+import MeasureCategoryCard from '../measureCard/measureCard';
 import HealthApi from '../../api/healthTracker';
 import { getCategories } from '../../redux/actions/index'
 import useStyles from './MeasureList.styles';
