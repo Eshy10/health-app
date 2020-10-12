@@ -25,7 +25,9 @@ const BottomNavbar = ({props}) => {
       <Link to="/trackCard">
       <BottomNavigationAction label="Track" value="track" icon={<TrendingUpIcon />}  style = {{color: 'white'}}  />
       </Link>
+      <Link to="/progress">
       <BottomNavigationAction label="Progress" value="progress" icon={<PieChartIcon />}  style = {{color: 'white'}}  />
+      </Link>
       <BottomNavigationAction label="more" value="more" icon={<MoreHorizIcon />}  style = {{color: 'white'}}  />
     </BottomNavigation>
   );

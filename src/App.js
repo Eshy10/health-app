@@ -6,6 +6,7 @@ import Homepage from './containers/homepage/Homepage';
 import AddMeasureCard from './components/addMeasures/AddMeasurement';
 import TrackCard from './components/track/TrackCard';
 import MeasureDetails from './components/measureDetails/MeasureDetails';
+import PieChatPage from './components/progress/Progress';
 import './App.css';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
     component={MeasureDetails}
     />
     <Route path="/trackCard" component={TrackCard}/>
+    <Route path="/progress" component={PieChatPage}/>
     </Switch>
     </div>
     </Router>
