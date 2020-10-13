@@ -8,7 +8,7 @@
 <br />
 <p align="center">
    <a href="https://github.com/Eshy10/Eshy10/health-app">
-    <p align="center"> <img src="./public/tracker.png" alt="React-logo" width="200" height="200"> </p>
+    <p align="center"> <img src="./public/tracker.png" alt="React-logo" width="500" height="200"> </p>
   </a>
   <h2 align="center">Health Tracker</h2>
   <h3 align="center">Health Tracker App that allows authenticated users to measure their weight, cholestrol and also track the measurements.
