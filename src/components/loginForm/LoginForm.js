@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -20,7 +19,6 @@ import useStyles from './LoginForm.styles';
 const LoginForm = ({ props }) => {
   const classes = useStyles(props);
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const initialFormState = {
     email: '',
@@ -39,7 +37,7 @@ const LoginForm = ({ props }) => {
     HealthApi.loginUser(values).then(data => {
       localStorage.setItem('token', data.auth_token);
       dispatch(loginUser(data.values));
-      history.push('/homepage');
+      window.location = '/homepage';
     });
   };
 
