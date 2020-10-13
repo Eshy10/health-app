@@ -1,61 +1,73 @@
-import React, { memo, useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import {
+  ComposedChart, XAxis, YAxis, CartesianGrid, Area, Tooltip, Legend, Bar, Line,
+} from 'recharts';
+import PropTypes from 'prop-types';
 import Navbar from '../navbar/Navbar';
-import BottomNavbar from '../../components/bottomNav/bottomNav.js';
+import BottomNavbar from '../bottomNav/bottomNav';
 import HealthApi from '../../api/healthTracker';
-import {getMeasurements} from '../../redux/actions/index';
-import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
+import { getMeasurements } from '../../redux/actions/index';
 import useStyles from './Progress.styles';
 
-const PieChatPage = ({props}) => {
-  const  COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#AF19FF'];
-    const dispatch = useDispatch();
+const PieChatPage = ({ ...props }) => {
+  const dispatch = useDispatch();
 
-    const classes = useStyles(props);
-   const  CustomTooltip = ({ active, payload, label }) => {
-        if (active) {
-            return (
-                <div className="custom-tooltip" style={{ backgroundColor: '#ffff', padding: '5px', border: '1px solid #cccc' }}>
-                    <label>{`${payload[0].name} : ${payload[0].value}%`}</label>
-                </div>
-            );
-        }
+  const classes = useStyles(props);
 
-        return null;
+  const allMeasurements = useSelector(state => state.measurements);
+  const formatDate = datetime => new Date(datetime).toDateString();
+
+  useEffect(() => {
+    const getCategory = () => {
+      HealthApi.getAllMeasurements().then(data => {
+        dispatch(getMeasurements(data));
+      }).catch(error => { throw (error); });
     };
+    getCategory();
+  }, [dispatch]);
+  if (!allMeasurements) {
+    return null;
+  }
 
-    const allMeasurements = useSelector(state => state.measurements);
-  
-    useEffect(() => {
-      const getCategory = () => {
-        HealthApi.getAllMeasurements().then(data => {
-          dispatch(getMeasurements(data));
-        }).catch(error => console.log(error));
-      };
-      getCategory();
-    }, [dispatch]);
-    if (!allMeasurements) {
-        return null
-    }
- 
-    return (
-  <div>
-  <Navbar/>
-  <div className={classes.root}>
-  <PieChart width={730} height={300}>
-  <Pie data={allMeasurements} color="#000000" dataKey="value" nameKey= "measure_category.name" cx="50%" cy="50%" outerRadius={120} fill="#8884d8" >
-      {
-          allMeasurements.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
-      }
-  </Pie>
-  <Tooltip content={<CustomTooltip />} />
-  <Legend />
-</PieChart>
-</div>
-  <BottomNavbar/>
-  </div>
-    )
-}
+  const date = () => {
+    let date;
+    return allMeasurements.map(measure => {
+      date = measure.date;
+      return formatDate(date);
+    });
+  };
 
-export default memo(PieChatPage)
+  return (
+    <div>
+      <Navbar />
+      <div className={classes.root}>
 
+        <ComposedChart width={730} height={350} data={allMeasurements}>
+          <XAxis dataKey={date} />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <CartesianGrid stroke="#f5f5f5" />
+          <Area type="monotone" dataKey="measure_category_id" fill="#8884d8" stroke="#8884d8" />
+          <Bar dataKey="measure_category.name" barSize={20} fill="#2AD042" />
+          <Line type="monotone" dataKey="value" stroke="#1C85D0" />
+        </ComposedChart>
+      </div>
+      <BottomNavbar />
+    </div>
+  );
+};
+
+PieChatPage.propTypes = {
+  props: PropTypes.func,
+  type: PropTypes.string,
+
+};
+
+PieChatPage.defaultProps = {
+  props: () => {},
+  type: 'category',
+};
+
+export default PieChatPage;

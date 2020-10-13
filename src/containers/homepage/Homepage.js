@@ -1,19 +1,17 @@
 import React from 'react';
+import Container from '@material-ui/core/Container';
 import Navbar from '../../components/navbar/Navbar';
 import BottomNavbar from '../../components/bottomNav/bottomNav';
 import MeasureCategoryList from '../../components/measureList/measureList';
-import Container from '@material-ui/core/Container';
 
-const Homepage = () => {
-    return (
-        <div className = 'homepage'>
-        <Navbar/>
-        <Container>
-        <MeasureCategoryList/>
-        </Container>
-        <BottomNavbar/>
-        </div>
-    )
-}
+const Homepage = () => (
+  <div className="homepage">
+    <Navbar />
+    <Container>
+      <MeasureCategoryList />
+    </Container>
+    <BottomNavbar />
+  </div>
+);
 
 export default Homepage;

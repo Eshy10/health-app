@@ -1,6 +1,7 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -13,44 +14,42 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Copyright from '../../Copyright';
 import HealthApi from '../../api/healthTracker';
-import {loginUser} from '../../redux/actions/index';
+import { loginUser } from '../../redux/actions/index';
 import useStyles from './SignUpForm.styles';
 
-
-const SignUpForm = ({props}) => {
+const SignUpForm = ({ props }) => {
   const classes = useStyles(props);
-  const dispatch = useDispatch()
-  let history = useHistory();
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const initialFormState = {
-    name:'',
-    email:'',
-    password:'',
-    password_confirmation: ''
-};
+    name: '',
+    email: '',
+    password: '',
+    password_confirmation: '',
+  };
 
   const [values, setValues] = useState(initialFormState);
 
-
   const handleChange = event => {
     const { name, value } = event.target;
-    setValues({...values, [name]: value });
-  }
+    setValues({ ...values, [name]: value });
+  };
 
   const handleSubmit = event => {
-    event.preventDefault()
-     HealthApi.signUpUser(values).then(data => {
-       localStorage.setItem("token", data.auth_token);
-        dispatch(loginUser(data.values));
-        history.push("/login")
-      });
-  }
+    event.preventDefault();
+    HealthApi.signUpUser(values).then(data => {
+      localStorage.setItem('token', data.auth_token);
+      dispatch(loginUser(data.values));
+      history.push('/login');
+    });
+  };
 
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square style = {{backgroundColor: '#1c85d0'}}>
+      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square style={{ backgroundColor: '#1c85d0' }}>
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
@@ -58,20 +57,20 @@ const SignUpForm = ({props}) => {
           <Typography component="h1" variant="h5" style={{ color: '#ffffff' }}>
             Sign up to stay healthy
           </Typography>
-          <form className={classes.form} onSubmit = {handleSubmit}>
-          <TextField
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          id="name"
-          label="Full Name"
-          name="name"
-          onChange = {handleChange}
-          value = {values.name}
-          autoComplete="full name"
-          autoFocus
-        />
+          <form className={classes.form} onSubmit={handleSubmit}>
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="name"
+              label="Full Name"
+              name="name"
+              onChange={handleChange}
+              value={values.name}
+              autoComplete="full name"
+              autoFocus
+            />
             <TextField
               variant="outlined"
               margin="normal"
@@ -80,8 +79,8 @@ const SignUpForm = ({props}) => {
               id="email"
               label="Email Address"
               name="email"
-              onChange = {handleChange}
-              value = {values.email}
+              onChange={handleChange}
+              value={values.email}
               autoComplete="email"
               autoFocus
             />
@@ -92,25 +91,25 @@ const SignUpForm = ({props}) => {
               fullWidth
               name="password"
               label="Password"
-              onChange = {handleChange}
-              value = {values.password}
+              onChange={handleChange}
+              value={values.password}
               type="password"
               id="password"
               autoComplete="current-password"
             />
             <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password_confirmation"
-            label="Password Confirmation"
-            onChange = {handleChange}
-            value = {values.password_confirmation}
-            type="password"
-            id="password_confirmation"
-            autoComplete="current-password"
-          />
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="password_confirmation"
+              label="Password Confirmation"
+              onChange={handleChange}
+              value={values.password_confirmation}
+              type="password"
+              id="password_confirmation"
+              autoComplete="current-password"
+            />
             <Button
               type="submit"
               fullWidth
@@ -123,7 +122,7 @@ const SignUpForm = ({props}) => {
             <Grid container>
               <Grid item>
                 <Link href="/login" variant="body2" style={{ color: '#ffffff' }}>
-                  {"Already have an account? Log in here"}
+                  Already have an account? Log in here
                 </Link>
               </Grid>
             </Grid>
@@ -135,6 +134,15 @@ const SignUpForm = ({props}) => {
       </Grid>
     </Grid>
   );
-}
+};
+
+SignUpForm.propTypes = {
+  props: PropTypes.func,
+
+};
+
+SignUpForm.defaultProps = {
+  props: () => {},
+};
 
 export default SignUpForm;

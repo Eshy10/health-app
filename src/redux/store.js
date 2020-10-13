@@ -12,7 +12,7 @@ const initialState = {
   currentUser: {},
   categories: [],
   measurement: {},
-  measurements: []
+  measurements: [],
 };
 
 const store = createStore(

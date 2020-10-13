@@ -6,30 +6,29 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import EmojiNatureIcon from '@material-ui/icons/EmojiNature';
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {logoutUser} from '../../redux/actions/index';
+import { logoutUser } from '../../redux/actions/index';
 import useStyles from './Navbar.styles';
 
-
-const Navbar = ({props}) => {
+const Navbar = ({ props }) => {
   const classes = useStyles(props);
 
-  const dispatch = useDispatch()
-  let history = useHistory()
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const Logout = () => {
     localStorage.removeItem('token');
-    dispatch(logoutUser())
-    history.push("/login")
-  }
+    dispatch(logoutUser());
+    history.push('/login');
+  };
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" style = {{backgroundColor: '#1c85d0'}}>
+      <AppBar position="static" style={{ backgroundColor: '#1c85d0' }}>
         <Toolbar variant="dense">
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-          <EmojiNatureIcon/>
+            <EmojiNatureIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.title}>
             Health Tracker
@@ -39,14 +38,14 @@ const Navbar = ({props}) => {
       </AppBar>
     </div>
   );
-}
+};
 
 Navbar.propTypes = {
-    props: PropTypes.func,
-  };
-  
-  Navbar.defaultProps = {
-    props: () => {},
-  };
+  props: PropTypes.func,
+};
 
-  export default Navbar;
+Navbar.defaultProps = {
+  props: () => {},
+};
+
+export default Navbar;

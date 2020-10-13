@@ -1,34 +1,34 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
-    root: {
-      width: '30%',
-      margin: '0 auto',
-      marginTop: '5em',
-      padding: '2em',
-      display: 'flex',
-      justifyContent: 'space-around',
-      alignItems: 'center',
-      textAlign: 'center',
-      boxShadow: "0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12)"
-    },
-    title: {
-        color: '#2ad042'
-    },
-    date: {
-       display: 'flex',
-       justifyContent: 'center'
-    },
-    oval2: {
-        backgroundColor: '#fff',
-        borderStyle: 'solid',
-        borderWidth: '5px',
-        height: '60px',
-        borderRadius: '50%',
-        width: '60px',
-        marginRight: '.6em',
-    
-    }
-  });
+  root: {
+    width: '30%',
+    margin: '0 auto',
+    marginTop: '5em',
+    padding: '2em',
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    textAlign: 'center',
+    boxShadow: '0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12)',
+  },
+  title: {
+    color: '#2ad042',
+  },
+  date: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  oval2: {
+    backgroundColor: '#fff',
+    borderStyle: 'solid',
+    borderWidth: '5px',
+    height: '60px',
+    borderRadius: '50%',
+    width: '60px',
+    marginRight: '.6em',
 
-  export default useStyles;
+  },
+});
+
+export default useStyles;
