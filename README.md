@@ -28,6 +28,7 @@
 - [About The Project](#about-the-project)
 - [Live Link (Heroku)](#live-link-heroku)
 - [Health Tracker Api](#health-tracker-api)
+- [Future Implementation](#future-implementation)
 - [Installation](#installation)
 - [Built With](#built-with)
 - [Authors](#authors)
@@ -53,6 +54,13 @@ This project is a React on Rails App. The Health Tracke web page contains a list
 ## Health Tracker Api
 [Click here]( https://github.com/Eshy10/health-app-api)
 
+<!-- Future Implemetation -->
+
+## Future Implementation
+- Add Admin Functionality to create more measurement categories.
+- Add Transitions for User Experience.
+- Responsiveness for the Progress Page.
+- Add User Profile to the More Page and other Functionalities.
 
 <!-- INSTALLATION -->
 
@@ -100,7 +108,7 @@ npm start
 - [Email](adewalebose15@gmail.com)
 
 ## Credits
-
+Design Inspiration was gotten from here [ Gregoire vella on Behance ]( https://www.behance.net/gregoirevella)
 
 ## Show your support
 
