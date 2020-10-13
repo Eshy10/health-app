@@ -40,6 +40,7 @@ const MeasureDetails = ({ props }) => {
         {getMeasurementId.user ? getMeasurementId.user.name : ''}
         {' '}
         :) your health stats at:
+        {' '}
         {formatDate(getMeasurementId.date)}
       </h2>
       <div className={classes.root}>

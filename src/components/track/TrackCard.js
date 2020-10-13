@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import Navbar from '../navbar/Navbar';
 import HealthApi from '../../api/healthTracker';
 import BottomNavbar from '../bottomNav/bottomNav';
@@ -37,8 +38,9 @@ const TrackCard = ({ props }) => {
                <div className={classes.root}>
                  <div style={{ borderColor: measure.value > 70 ? '#eee8e8 #307bbe #307bbe #307bbe' : '#307bbe #307bbe #eee8e8 #eee8e8' }} className={classes.oval2} />
                </div>
-               <h4>{formatDate(measure.date)}</h4>
+               <h4>{formatDate(measure ? measure.date : '')}</h4>
                <p className={classes.title}>{measure.measure_category ? measure.measure_category.name : ''}</p>
+               <ArrowForwardIosIcon />
              </div>
            </Link>
          ))
