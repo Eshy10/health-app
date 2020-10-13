@@ -44,7 +44,7 @@ This project is a React on Rails App. The Health Tracke web page contains a list
 
 ## Live Link (Heroku)
 
-[Click here]( https://comic-characters-stats.herokuapp.com/)
+[Click here](  https://healttrackx.herokuapp.com/)
 
 <!-- INSTALLATION -->
 
