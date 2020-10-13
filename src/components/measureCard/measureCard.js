@@ -15,7 +15,7 @@ const MeasureCategoryCard = ({ props, name, id }) => {
       <Card className={classes.root}>
         <CardActionArea>
           <CardContent>
-            <Typography className={classes.title} color="textSecondary" gutterBottom>
+            <Typography className={classes.title} style={{ color: '#42B5E8', fontWeight: 'bold' }} gutterBottom>
               {name}
             </Typography>
           </CardContent>

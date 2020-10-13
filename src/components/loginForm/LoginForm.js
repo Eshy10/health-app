@@ -47,7 +47,7 @@ const LoginForm = ({ props }) => {
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square style={{ backgroundColor: '#1c85d0' }}>
+      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square style={{ backgroundColor: '#42B5E8' }}>
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
@@ -86,7 +86,7 @@ const LoginForm = ({ props }) => {
               type="submit"
               fullWidth
               variant="contained"
-              style={{ backgroundColor: '#2ad042' }}
+              style={{ backgroundColor: '#97E493' }}
               className={classes.submit}
             >
               Sign In

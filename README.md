@@ -27,9 +27,11 @@
 - [Table of Contents](#table-of-contents)
 - [About The Project](#about-the-project)
 - [Live Link (Heroku)](#live-link-heroku)
+- [Health Tracker Api](#health-tracker-api)
 - [Installation](#installation)
 - [Built With](#built-with)
 - [Authors](#authors)
+- [Credits](#credits)
 - [Show your support](#show-your-support)
 - [📝 License](#-license)
 
@@ -45,6 +47,12 @@ This project is a React on Rails App. The Health Tracke web page contains a list
 ## Live Link (Heroku)
 
 [Click here](  https://healttrackx.herokuapp.com/)
+
+<!-- Resource -->
+
+## Health Tracker Api
+[Click here]( https://github.com/Eshy10/health-app-api)
+
 
 <!-- INSTALLATION -->
 
@@ -90,6 +98,9 @@ npm start
 - [LinkedIn](https://www.linkedin.com/in/adewale-adeshola/)
 - [GitHub](https://github.com/Eshy10)
 - [Email](adewalebose15@gmail.com)
+
+## Credits
+
 
 ## Show your support
 

@@ -38,9 +38,9 @@ const TrackCard = ({ props }) => {
                <div className={classes.root}>
                  <div style={{ borderColor: measure.value > 70 ? '#eee8e8 #307bbe #307bbe #307bbe' : '#307bbe #307bbe #eee8e8 #eee8e8' }} className={classes.oval2} />
                </div>
-               <h4>{formatDate(measure ? measure.date : '')}</h4>
+               <h4 style={{ color: '#42B5E8', fontWeight: 'bold' }}>{formatDate(measure ? measure.date : '')}</h4>
                <p className={classes.title}>{measure.measure_category ? measure.measure_category.name : ''}</p>
-               <ArrowForwardIosIcon />
+               <ArrowForwardIosIcon style={{ color: 'grey', fontWeight: 'bold' }} />
              </div>
            </Link>
          ))

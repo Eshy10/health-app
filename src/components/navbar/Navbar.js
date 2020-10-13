@@ -24,7 +24,7 @@ const Navbar = ({ props }) => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" style={{ backgroundColor: '#1c85d0' }}>
+      <AppBar position="static" style={{ backgroundColor: '#42B5E8' }}>
         <Toolbar variant="dense">
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <EmojiNatureIcon />
