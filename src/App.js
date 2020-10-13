@@ -17,12 +17,8 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <Route path="/signup" component={SignUpForm}>
-            {currentUser ? <Homepage /> : <SignUpForm />}
-          </Route>
-          <Route path="/login" component={LoginForm}>
-            {currentUser ? <Homepage /> : <LoginForm />}
-          </Route>
+          <Route path="/signup" component={SignUpForm} />
+          <Route path="/login" component={LoginForm} />
           <Route exact path="/"><LoginForm /></Route>
           <Route path="/homepage" component={Homepage}>
             {currentUser ? <Homepage /> : <LoginForm />}
