@@ -19,7 +19,7 @@ const BottomNavbar = ({ props }) => {
 
   return (
     <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
-      <Link to="/">
+      <Link to="/homepage">
         <BottomNavigationAction label="Add measure" value="add measure" icon={<PlaylistAddIcon />} style={{ color: 'white' }} />
       </Link>
       <Link to="/trackCard">

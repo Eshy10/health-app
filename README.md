@@ -1,68 +1,111 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
 
-## Available Scripts
+<!-- PROJECT LOGO -->
 
-In the project directory, you can run:
+<br />
+<p align="center">
+   <a href="https://github.com/Eshy10/Eshy10/health-app">
+    <p align="center"> <img src="./public/tracker.png" alt="React-logo" width="200" height="200"> </p>
+  </a>
+  <h2 align="center">Health Tracker</h2>
+  <h3 align="center">Health Tracker App that allows authenticated users to measure their weight, cholestrol and also track the measurements.
+</h3>
 
-### `npm start`
+  <p align="center">
+    <a href="https://github.com/Eshy10/Eshy10/health-app/issues">Report Bug</a>
+    · 
+    <a href="https://github.com/Eshy10/Eshy10/health-app/issues">Request Feature</a>
+  </p>
+</p>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- [Table of Contents](#table-of-contents)
+- [About The Project](#about-the-project)
+- [Live Link (Heroku)](#live-link-heroku)
+- [Installation](#installation)
+- [Built With](#built-with)
+- [Authors](#authors)
+- [Show your support](#show-your-support)
+- [📝 License](#-license)
 
-### `npm test`
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This project is a React on Rails App. The Health Tracke web page contains a list of categories of measurements where user can either measure their weight or cholestrol level. Users can add their measurements and track thier weight, also there is a progress page which shows visual display of the measurements usin a chart. The data are gotten from the Health Tracker Restful Api and are retrieved through the redux store.
 
-### `npm run build`
+![chrome-capture (7)](https://user-images.githubusercontent.com/52670459/95810459-ece0ff80-0d08-11eb-87c1-b362eb2e35cf.gif))
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<!-- Live Link (Heroku) -->
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Live Link (Heroku)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[Click here]( https://comic-characters-stats.herokuapp.com/)
 
-### `npm run eject`
+<!-- INSTALLATION -->
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Installation
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repo
+```sh
+git clone https://github.com/Eshy10/health-app.git
+```
+2. Open the project Directory in your local machine
+```
+cd comic-characters-stats
+```
+1. Install NPM packages
+```sh
+npm install
+```
+4. Run Application
+```JS
+npm start
+```
+<!-- BUILD WITH -->
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Built With
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- React
+- React Hooks
+- Redux
+- React Redux
+- Redux Thunk
+- prop-types
+- Eslint
+- Stylelint
+- NPM
+- Github
+- Heroku
 
-## Learn More
+<!-- CONTACT -->
+## Authors
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+👤 **Adewale Modupe** 
+    
+- [LinkedIn](https://www.linkedin.com/in/adewale-adeshola/)
+- [GitHub](https://github.com/Eshy10)
+- [Email](adewalebose15@gmail.com)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Show your support
 
-### Code Splitting
+Give a ⭐️ if you like this project!
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/Eshy10/health-app.svg?style=flat-square
+[contributors-url]: https://github.com/Eshy10/health-app/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Eshy10/health-app.svg?style=flat-square
+[forks-url]: https://github.com/Eshy10/health-app/network/members
+[stars-shield]: https://img.shields.io/github/stars/Eshy10/health-app.svg?style=flat-square
+[stars-url]: https://github.com/Eshy10/health-app/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Eshy10/health-app.svg?style=flat-square
+[issues-url]: https://github.com/health-app/issues
 
-### Analyzing the Bundle Size
+## 📝 License
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This project is [MIT](https://opensource.org/licenses/MIT) licensed.

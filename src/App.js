@@ -1,5 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router, Switch, Route,
+} from 'react-router-dom';
 import LoginForm from './components/loginForm/LoginForm';
 import SignUpForm from './components/signupForm/SignUpForm';
 import Homepage from './containers/homepage/Homepage';
@@ -10,13 +12,21 @@ import PieChatPage from './components/progress/Progress';
 import './App.css';
 
 function App() {
+  const currentUser = localStorage.getItem('token');
   return (
     <Router>
       <div className="App">
         <Switch>
-          <Route path="/signup" component={SignUpForm} />
-          <Route path="/login" component={LoginForm} />
-          <Route exact path="/" component={Homepage} />
+          <Route path="/signup" component={SignUpForm}>
+            {currentUser ? <Homepage /> : <SignUpForm />}
+          </Route>
+          <Route path="/login" component={LoginForm}>
+            {currentUser ? <Homepage /> : <LoginForm />}
+          </Route>
+          <Route exact path="/"><LoginForm /></Route>
+          <Route path="/homepage" component={Homepage}>
+            {currentUser ? <Homepage /> : <LoginForm />}
+          </Route>
           <Route
             path="/measurecard/:measurecardIndex"
             exact
@@ -27,8 +37,12 @@ function App() {
             exact
             component={MeasureDetails}
           />
-          <Route path="/trackCard" component={TrackCard} />
-          <Route path="/progress" component={PieChatPage} />
+          <Route path="/trackCard" component={TrackCard}>
+            {currentUser ? <TrackCard /> : <LoginForm />}
+          </Route>
+          <Route path="/progress" component={PieChatPage}>
+            {currentUser ? <PieChatPage /> : <LoginForm />}
+          </Route>
         </Switch>
       </div>
     </Router>

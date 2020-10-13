@@ -39,7 +39,7 @@ const LoginForm = ({ props }) => {
     HealthApi.loginUser(values).then(data => {
       localStorage.setItem('token', data.auth_token);
       dispatch(loginUser(data.values));
-      history.push('/');
+      history.push('/homepage');
     });
   };
 

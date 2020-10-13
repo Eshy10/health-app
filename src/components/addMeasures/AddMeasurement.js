@@ -34,7 +34,7 @@ const AddMeasureCard = ({ props }) => {
     event.preventDefault();
     HealthApi.addMeasurement(values).then(data => {
       dispatch(addMeasurements(data.values));
-      history.push('/');
+      history.push('/homepage');
     }).catch(error => { throw (error); });
   };
 

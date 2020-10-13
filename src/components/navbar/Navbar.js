@@ -13,14 +13,13 @@ import useStyles from './Navbar.styles';
 
 const Navbar = ({ props }) => {
   const classes = useStyles(props);
-
   const dispatch = useDispatch();
   const history = useHistory();
 
   const Logout = () => {
     localStorage.removeItem('token');
     dispatch(logoutUser());
-    history.push('/login');
+    history.push('/');
   };
 
   return (
