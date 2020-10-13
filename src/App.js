@@ -17,12 +17,11 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <Route path="/signup" component={SignUpForm} />
-          <Route path="/login" component={LoginForm} />
-          <Route exact path="/"><LoginForm /></Route>
-          <Route path="/homepage" component={Homepage}>
+          <Route exact path="/homepage" component={Homepage}>
             {currentUser ? <Homepage /> : <LoginForm />}
           </Route>
+          <Route path="/signup" component={SignUpForm} />
+          <Route path="/login" component={LoginForm} />
           <Route
             path="/measurecard/:measurecardIndex"
             exact
@@ -39,6 +38,7 @@ function App() {
           <Route path="/progress" component={PieChatPage}>
             {currentUser ? <PieChatPage /> : <LoginForm />}
           </Route>
+          <Route path="/"><LoginForm /></Route>
         </Switch>
       </div>
     </Router>
