@@ -1,8 +1,11 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     width: '30%',
+    [theme.breakpoints.down('sm')]: {
+      width: '80%',
+    },
     margin: '0 auto',
     marginTop: '5em',
     padding: '2em',
@@ -19,6 +22,8 @@ const useStyles = makeStyles({
   date: {
     display: 'flex',
     justifyContent: 'center',
+    textAlign: 'center',
+    color: '#313944',
   },
   oval2: {
     backgroundColor: '#fff',
@@ -30,6 +35,6 @@ const useStyles = makeStyles({
     marginRight: '.6em',
 
   },
-});
+}));
 
 export default useStyles;

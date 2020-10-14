@@ -7,6 +7,8 @@ const useStyles = makeStyles({
     flexDirection: 'column',
     alignItems: 'center',
     marginTop: '3em',
+    width: '96%',
+    height: '50vh',
   },
 
 });

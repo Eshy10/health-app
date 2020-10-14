@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  ComposedChart, XAxis, YAxis, CartesianGrid, Area, Tooltip, Legend, Bar, Line,
+  ComposedChart, XAxis, YAxis, CartesianGrid, Area, Tooltip, Legend, Bar, Line, ResponsiveContainer,
 } from 'recharts';
 import PropTypes from 'prop-types';
 import Navbar from '../navbar/Navbar';
@@ -39,17 +39,18 @@ const PieChatPage = ({ ...props }) => {
     <div>
       <Navbar />
       <div className={classes.root}>
-
-        <ComposedChart width={730} height={350} data={allMeasurements}>
-          <XAxis dataKey={date} />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <CartesianGrid stroke="#f5f5f5" />
-          <Area type="monotone" dataKey="measure_category_id" fill="#8884d8" stroke="#8884d8" />
-          <Bar dataKey="measure_category.name" barSize={20} fill="#2AD042" />
-          <Line type="monotone" dataKey="value" stroke="#1C85D0" />
-        </ComposedChart>
+        <ResponsiveContainer>
+          <ComposedChart width={730} height={350} data={allMeasurements}>
+            <XAxis dataKey={date} />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <CartesianGrid stroke="#f5f5f5" />
+            <Area type="monotone" dataKey="measure_category_id" fill="#8884d8" stroke="#8884d8" />
+            <Bar dataKey="measure_category.name" barSize={20} fill="#2AD042" />
+            <Line type="monotone" dataKey="value" stroke="#1C85D0" />
+          </ComposedChart>
+        </ResponsiveContainer>
       </div>
       <BottomNavbar />
     </div>
