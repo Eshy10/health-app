@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
-import { getMeasuresId } from '../../redux/actions/index';
 import HealthApi from '../../api/healthTracker';
 import Navbar from '../navbar/Navbar';
 import BottomNavbar from '../bottomNav/bottomNav';
@@ -20,9 +19,7 @@ const MeasureDetails = ({ props }) => {
 
   useEffect(() => {
     const getCategory = () => {
-      HealthApi.getAllMeasurementId(measuredetailsIndex).then(data => {
-        dispatch(getMeasuresId(data));
-      }).catch(error => { throw (error); });
+      dispatch(HealthApi.getAllMeasurementId(measuredetailsIndex));
     };
     getCategory();
   }, [dispatch, getMeasurementId, measuredetailsIndex]);

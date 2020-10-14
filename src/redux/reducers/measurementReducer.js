@@ -1,8 +1,4 @@
-const initialState = {
-  measurement: {},
-};
-
-const measureReducer = (state = initialState, action) => {
+const measureReducer = (state = {}, action) => {
   switch (action.type) {
     case 'ADD_MEASURES':
       return {

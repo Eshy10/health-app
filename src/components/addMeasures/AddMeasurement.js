@@ -7,7 +7,6 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Navbar from '../navbar/Navbar';
 import BottomNavbar from '../bottomNav/bottomNav';
-import { addMeasurements } from '../../redux/actions/index';
 import HealthApi from '../../api/healthTracker';
 import useStyles from './AddMeasurement.styles';
 
@@ -32,10 +31,8 @@ const AddMeasureCard = ({ props }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    HealthApi.addMeasurement(values).then(data => {
-      dispatch(addMeasurements(data.values));
-      history.push('/homepage');
-    }).catch(error => { throw (error); });
+    dispatch(HealthApi.addMeasurement(values));
+    history.push('/trackCard');
   };
 
   return (

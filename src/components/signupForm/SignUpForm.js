@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
@@ -14,13 +13,11 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Copyright from '../../Copyright';
 import HealthApi from '../../api/healthTracker';
-import { loginUser } from '../../redux/actions/index';
 import useStyles from './SignUpForm.styles';
 
 const SignUpForm = ({ props }) => {
   const classes = useStyles(props);
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const initialFormState = {
     name: '',
@@ -30,6 +27,7 @@ const SignUpForm = ({ props }) => {
   };
 
   const [values, setValues] = useState(initialFormState);
+  const error = useSelector(state => state.errors);
 
   const handleChange = event => {
     const { name, value } = event.target;
@@ -38,11 +36,11 @@ const SignUpForm = ({ props }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    HealthApi.signUpUser(values).then(data => {
-      localStorage.setItem('token', data.auth_token);
-      dispatch(loginUser(data.values));
-      history.push('/login');
-    });
+    dispatch(HealthApi.signUpUser(values));
+    if (error) {
+      return error;
+    }
+    return true;
   };
 
   return (
@@ -57,7 +55,8 @@ const SignUpForm = ({ props }) => {
           <Typography component="h1" variant="h5" style={{ color: '#ffffff' }}>
             Sign up to stay healthy
           </Typography>
-          <form className={classes.form} onSubmit={handleSubmit}>
+          <p className={classes.error}>{error.errors}</p>
+          <form className={classes.form} noValidate onSubmit={handleSubmit}>
             <TextField
               variant="outlined"
               margin="normal"
@@ -117,11 +116,11 @@ const SignUpForm = ({ props }) => {
               style={{ backgroundColor: '#97E493' }}
               className={classes.submit}
             >
-              Sign In
+              Sign Up
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="/login" variant="body2" style={{ color: '#ffffff' }}>
+                <Link to="/login" variant="body2" style={{ color: '#ffffff' }}>
                   Already have an account? Log in here
                 </Link>
               </Grid>

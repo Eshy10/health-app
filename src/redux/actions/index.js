@@ -26,3 +26,8 @@ export const getMeasuresId = measurement => ({
   type: 'GET_MEASURES',
   payload: measurement,
 });
+
+export const formErrors = errors => ({
+  type: 'GET_ERRORS',
+  payload: errors,
+});

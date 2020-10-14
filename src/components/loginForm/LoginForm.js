@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import HealthApi from '../../api/healthTracker';
-import { loginUser } from '../../redux/actions/index';
 import Copyright from '../../Copyright';
 import useStyles from './LoginForm.styles';
 
 const LoginForm = ({ props }) => {
   const classes = useStyles(props);
   const dispatch = useDispatch();
+  const error = useSelector(state => state.errors);
 
   const initialFormState = {
     email: '',
@@ -34,12 +34,16 @@ const LoginForm = ({ props }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    HealthApi.loginUser(values).then(data => {
-      localStorage.setItem('token', data.auth_token);
-      dispatch(loginUser(data.values));
-      window.location = '/homepage';
-    });
+    dispatch(HealthApi.loginUser(values));
+    if (error) {
+      return error;
+    }
+    return true;
   };
+
+  if (!error) {
+    return null;
+  }
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -53,7 +57,8 @@ const LoginForm = ({ props }) => {
           <Typography component="h1" variant="h5" style={{ color: '#ffffff' }}>
             Welcome Back ):
           </Typography>
-          <form className={classes.form} onSubmit={handleSubmit}>
+          <p className={classes.error}>{error.errors}</p>
+          <form className={classes.form} noValidate onSubmit={handleSubmit}>
             <TextField
               variant="outlined"
               margin="normal"
@@ -91,7 +96,7 @@ const LoginForm = ({ props }) => {
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="/signup" variant="body2" style={{ color: '#ffffff' }}>
+                <Link to="/signup" variant="body2" style={{ color: '#ffffff' }}>
                   Dont have an account? Sign Up
                 </Link>
               </Grid>

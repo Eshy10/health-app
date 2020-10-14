@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import MeasureCategoryCard from '../measureCard/measureCard';
 import HealthApi from '../../api/healthTracker';
-import { getCategories } from '../../redux/actions/index';
 import useStyles from './MeasureList.styles';
 
 const MeasureCategoryList = ({ props }) => {
@@ -14,9 +13,7 @@ const MeasureCategoryList = ({ props }) => {
 
   useEffect(() => {
     const getCategory = () => {
-      HealthApi.getMeasureCategories().then(data => {
-        dispatch(getCategories(data));
-      }).catch(error => { throw (error); });
+      dispatch(HealthApi.getMeasureCategories());
     };
     getCategory();
   }, [dispatch]);

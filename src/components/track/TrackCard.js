@@ -6,7 +6,6 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import Navbar from '../navbar/Navbar';
 import HealthApi from '../../api/healthTracker';
 import BottomNavbar from '../bottomNav/bottomNav';
-import { getMeasurements } from '../../redux/actions/index';
 import useStyles from './trackCard.styles';
 
 const TrackCard = ({ props }) => {
@@ -18,9 +17,7 @@ const TrackCard = ({ props }) => {
 
   useEffect(() => {
     const getCategory = () => {
-      HealthApi.getAllMeasurements().then(data => {
-        dispatch(getMeasurements(data));
-      }).catch(error => { throw (error); });
+      dispatch(HealthApi.getAllMeasurements());
     };
     getCategory();
   }, [dispatch]);

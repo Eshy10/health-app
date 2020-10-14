@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 import Navbar from '../navbar/Navbar';
 import BottomNavbar from '../bottomNav/bottomNav';
 import HealthApi from '../../api/healthTracker';
-import { getMeasurements } from '../../redux/actions/index';
 import useStyles from './Progress.styles';
 
 const PieChatPage = ({ ...props }) => {
@@ -20,9 +19,7 @@ const PieChatPage = ({ ...props }) => {
 
   useEffect(() => {
     const getCategory = () => {
-      HealthApi.getAllMeasurements().then(data => {
-        dispatch(getMeasurements(data));
-      }).catch(error => { throw (error); });
+      dispatch(HealthApi.getAllMeasurements());
     };
     getCategory();
   }, [dispatch]);
