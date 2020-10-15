@@ -21,6 +21,9 @@ const useStyles = makeStyles(theme => ({
   title: {
     color: '#2ad042',
   },
+  measure: {
+    marginBottom: '65px',
+  },
   oval2: {
     backgroundColor: '#fff',
     borderStyle: 'solid',
