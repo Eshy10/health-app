@@ -72,7 +72,7 @@ git clone https://github.com/Eshy10/health-app.git
 ```
 2. Open the project Directory in your local machine
 ```
-cd comic-characters-stats
+cd health-app
 ```
 1. Install NPM packages
 ```sh
