@@ -39,7 +39,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This project is a React on Rails App. The Health Tracke web page contains a list of categories of measurements where user can either measure their weight or cholestrol level. Users can add their measurements and track thier weight, also there is a progress page which shows visual display of the measurements usin a chart. The data are gotten from the Health Tracker Restful Api and are retrieved through the redux store.
+This project is a React on Rails App. The Health Tracke web page contains a list of categories of measurements where user can either measure their weight or cholestrol level. Users can add their measurements and track thier weight, also there is a progress page which shows visual display of the measurements using a chart. The data are gotten from the Health Tracker Restful Api and are retrieved through the redux store.
 
 ![chrome-capture (7)](https://user-images.githubusercontent.com/52670459/95810459-ece0ff80-0d08-11eb-87c1-b362eb2e35cf.gif))
 
@@ -59,7 +59,6 @@ This project is a React on Rails App. The Health Tracke web page contains a list
 ## Future Implementation
 - Add Admin Functionality to create more measurement categories.
 - Add Transitions for User Experience.
-- Responsiveness for the Progress Page.
 - Add User Profile to the More Page and other Functionalities.
 
 <!-- INSTALLATION -->
